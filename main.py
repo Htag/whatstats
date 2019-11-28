@@ -1,4 +1,7 @@
 import sys
+from flask import Flask
+
+app = Flask(__name__)
 
 def analyse(filename):
   """
@@ -9,6 +12,7 @@ def analyse(filename):
   print(filename)
   pass # Start here
 
+
 def main():
   """
   Main function that serves as an entrypoint for the program. Reads the chat file name from the command line when the program is run from the terminal and passed it to the `analyse()` method. 
@@ -18,8 +22,14 @@ def main():
   python3 main.py chat_file.txt
   ```
   """
-  chatfile_name = sys.argv[1]
+  chatfile_name = "discuss.txt"
   analyse(chatfile_name)
 
+@app.route("/")
+def home():
+    main()
+    return "Hello, World!"
+
+
 if __name__ == "__main__":
-  main()
+  app.run(debug=True)

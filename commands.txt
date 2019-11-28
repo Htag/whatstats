@@ -1,0 +1,7 @@
+git config --global https.proxy http://osm-docker.ags.ratp.fr:3128
+git config --global http.proxy http://osm-docker.ags.ratp.fr:3128
+
+
+git config --global --unset http.proxy
+or
+git config --global --unset https.proxy
